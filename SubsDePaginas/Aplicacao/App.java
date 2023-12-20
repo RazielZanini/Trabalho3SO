@@ -29,7 +29,7 @@ public class App {
         }
 
         int fifoPageFaults = fifo.getPageFaultsCount();
-        System.out.println(fifoPageFaults);
+        System.out.println("Quantidade de PageFaults: "+fifoPageFaults);
 
         System.out.println("Simulação Algoritmo LRU");
         System.out.println(" ");
@@ -41,7 +41,7 @@ public class App {
         }
 
         int lruPageFaults = lru.getPageFaultsCount();
-        System.out.println(lruPageFaults);
+        System.out.println("Quantidade de PageFaults: "+lruPageFaults);
 
         System.out.println("Simulação Algoritmo Otimo");
         System.out.println(" ");
@@ -56,16 +56,12 @@ public class App {
         otimo.inserir();
 
         int otimoPageFaults = otimo.getPageFaultsCount();
-        System.out.println(otimoPageFaults);
+        System.out.println("Quantidade de PageFaults: "+otimoPageFaults);
 
         double total = fifoPageFaults + lruPageFaults + otimoPageFaults;
         double fifoPercent = (fifoPageFaults / total) * 100;
         double lruPercent = (lruPageFaults / total) * 100;
         double otimoPercent = (otimoPageFaults / total) * 100;
-
-        System.out.println(fifoPercent);
-        System.out.println(lruPercent);
-        System.out.println(otimoPercent);
 
         Grafico grafico = new Grafico(fifoPercent, lruPercent, otimoPercent);
         grafico.setSize(800, 600);
